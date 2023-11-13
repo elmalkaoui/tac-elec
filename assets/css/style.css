@@ -320,7 +320,8 @@ section {
   }
   
   .navbar-mobile ul {
-    display: block;
+    display: flex;
+    flex-direction:column;
     position: absolute;
     top: 55px;
     right: 15px;
@@ -328,7 +329,7 @@ section {
     left: 15px;
     padding: 10px 0;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #003E89;
     overflow-y: auto;
     transition: 0.3s;
   }
