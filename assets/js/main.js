@@ -269,6 +269,6 @@
       //   .then(function (message) { 
       //     alert("mail sent successfully") 
       //   }); 
-        console.log("Email envoyé");
-    } 
+     document.getElementById('form').action = "mailto:codeur2018@gmail.com?subject=" + document.getElementById('subject').value + "&body=" + "Prénom et Nom : " + document.getElementById('name').value + "%0A" + "Message : " + document.getElementById('message').value;
+    }
   })()

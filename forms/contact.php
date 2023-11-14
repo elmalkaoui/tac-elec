@@ -1,6 +1,5 @@
 <?php
 
-
 // Get data from form  
 $name = $_POST['name'];
 $email= $_POST['email'];
@@ -15,5 +14,5 @@ if($email != NULL) {
     mail($to, $subject, $message, $headers);
 }
 
-header("Location:last.html");
+header("Location:index.html");
 ?>
