@@ -1,29 +1,19 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
 
 // Get data from form  
 $name = $_POST['name'];
 $email= $_POST['email'];
 $message= $_POST['message'];
  
-$to = "yourEmail@gmail.com";
-$subject = "This is the subject line";
- 
-// The following text will be sent
-// Name = user entered name
-// Email = user entered email
-// Message = user entered message 
-$txt ="Name = ". $name . "\r\n  Email = "
-    . $email . "\r\n Message =" . $message;
+$to = "contac@tac-elec.fr";
+$subject = $_POST['subject'];
  
 $headers = "From: ymelkaoui@gmail.com" . "\r\n" .
             "CC: codeur2018@gmail.com";
 if($email != NULL) {
-    mail($to, $subject, $txt, $headers);
+    mail($to, $subject, $message, $headers);
 }
 
-echo "teeeeeeeeeeeeeeest";
-// Redirect to
 header("Location:last.html");
 ?>

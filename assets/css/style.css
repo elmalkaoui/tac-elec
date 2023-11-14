@@ -311,7 +311,6 @@ section {
     bottom: 0;
     background: rgba(40, 58, 90, 0.9);
     transition: 0.3s;
-    z-index: 999;
   }
   
   .navbar-mobile .mobile-nav-toggle {
@@ -324,15 +323,14 @@ section {
     display: flex;
     flex-direction:column;
     position: absolute;
-    top: 55px;
-    right: 15px;
-    bottom: 15px;
-    left: 15px;
+    top: 50px;
+    right: 20px;
     padding: 10px 0;
     border-radius: 10px;
     background-color: #003E89;
     overflow-y: auto;
     transition: 0.3s;
+    padding: 30px;
   }
   
   .navbar-mobile a,
@@ -426,10 +424,10 @@ section {
   border-radius: 20px;
   margin-top: -100px;
   position: absolute;
+  /* z-index: 1000; */
 }
 
-#home .bg-image {
-}
+#home .bg-image {}
 
 #home img {
   position:absolute;
@@ -546,7 +544,7 @@ section {
 --------------------------------------------------------------*/
 
 .domains .container-fluid {
-  padding: 0 3%;
+  padding: 0 5%;
 }
 
 .domains .box {
@@ -660,7 +658,7 @@ section {
 # Services
 --------------------------------------------------------------*/
 .services .container-fluid {
-  padding: 0 5%;
+  padding: 0 10%;
 }
 .services .icon-box {
   box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
@@ -797,7 +795,7 @@ section {
 # Contact
 --------------------------------------------------------------*/
 .contact .container-fluid {
-  padding: 0 5%;
+  padding: 0 10%;
 }
 
 .contact .info {

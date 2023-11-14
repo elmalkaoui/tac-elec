@@ -252,5 +252,23 @@
         mirror: true
       });
     });
-  
+
+    /**
+    *envoie de mail
+    */
+    function sendEmail() { 
+      // Email.send({ 
+      //   Host: "ssl0.ovh.net", 
+      //   Username: "contact@tac-elec.fr", 
+      //   Password: "Amir04012020!", 
+      //   To: 'codeur2018@gmail.com', 
+      //   From: "contact@tac-elec.fr", 
+      //   Subject: "Sending Email using javascript", 
+      //   Body: "Well that was easy!!", 
+      // }) 
+      //   .then(function (message) { 
+      //     alert("mail sent successfully") 
+      //   }); 
+        console.log("Email envoyé");
+    } 
   })()
