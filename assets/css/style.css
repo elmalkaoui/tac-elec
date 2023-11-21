@@ -465,7 +465,8 @@ section {
   /* z-index: 1000; */
 }
 
-#home .bg-image {}
+#home .bg-image {
+}
 
 #home img {
   position:absolute;
