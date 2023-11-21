@@ -262,7 +262,6 @@ function sendEmail() {
     var email = document.getElementById('email').value;
     var subject = document.getElementById('subject').value;
     var message = document.getElementById('message').value;
-    console.log(name, email, subject, message);
     
     fetch('forms/contact.php', {
           method: 'POST',
@@ -275,7 +274,12 @@ function sendEmail() {
      .then(data => {
         console.log(data);
         if (data.success) {
-            alert('Email sent successfully!');
+            const successMessage = document.getElementsByClassName('sent-message')[0];
+            successMessage.style.display = 'block';
+            document.getElementById('name').value='';
+            document.getElementById('email').value='';
+            document.getElementById('subject').value='';
+            document.getElementById('message').value='';
         } else {
             alert('Failed to send email. Please try again later.');
         }
