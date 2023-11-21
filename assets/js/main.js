@@ -169,61 +169,7 @@
     const glightbox = GLightbox({
       selector: '.glightbox'
     });
-  
-    /**
-     * Skills animation
-     */
-    let skilsContent = select('.skills-content');
-    if (skilsContent) {
-      new Waypoint({
-        element: skilsContent,
-        offset: '80%',
-        handler: function(direction) {
-          let progress = select('.progress .progress-bar', true);
-          progress.forEach((el) => {
-            el.style.width = el.getAttribute('aria-valuenow') + '%'
-          });
-        }
-      })
-    }
-  
-    /**
-     * Porfolio isotope and filter
-     */
-    window.addEventListener('load', () => {
-      let portfolioContainer = select('.portfolio-container');
-      if (portfolioContainer) {
-        let portfolioIsotope = new Isotope(portfolioContainer, {
-          itemSelector: '.portfolio-item'
-        });
-  
-        let portfolioFilters = select('#portfolio-flters li', true);
-  
-        on('click', '#portfolio-flters li', function(e) {
-          e.preventDefault();
-          portfolioFilters.forEach(function(el) {
-            el.classList.remove('filter-active');
-          });
-          this.classList.add('filter-active');
-  
-          portfolioIsotope.arrange({
-            filter: this.getAttribute('data-filter')
-          });
-          portfolioIsotope.on('arrangeComplete', function() {
-            AOS.refresh()
-          });
-        }, true);
-      }
-  
-    });
-  
-    /**
-     * Initiate portfolio lightbox 
-     */
-    const portfolioLightbox = GLightbox({
-      selector: '.portfolio-lightbox'
-    });
-  
+
     /**
      * services slider
      */
@@ -258,6 +204,11 @@
 *envoie de mail
 */
 function sendEmail() {
+    if(document.getElementById('name').value === "" || document.getElementById('email').value === ""
+      || document.getElementById('subject').value === "" || document.getElementById('message').value === ""){
+        document.getElementsByClassName('error-message')[0].value="Veuillez remplir tous les champs s'il vous plait.";
+        document.getElementsByClassName('error-message')[0].style.display='block';
+    }
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
     var subject = document.getElementById('subject').value;
@@ -272,8 +223,8 @@ function sendEmail() {
      })
      .then(response => response.json())
      .then(data => {
-        console.log(data);
         if (data.success) {
+            document.getElementsByClassName('error-message')[0].style.display='none';            
             const successMessage = document.getElementsByClassName('sent-message')[0];
             successMessage.style.display = 'block';
             document.getElementById('name').value='';
@@ -281,11 +232,11 @@ function sendEmail() {
             document.getElementById('subject').value='';
             document.getElementById('message').value='';
         } else {
-            alert('Failed to send email. Please try again later.');
+            document.getElementsByClassName('error-message')[0].value="Une erreur s'est produite lors de l'envoie, veuileez re-essayer ulterieurment."
         }
      })
     .catch(error => {
            console.error('Error:', error);
-           alert('Failed to send email. Please try again later.');
+            document.getElementsByClassName('error-message')[0].value="Une erreur s'est produite lors de l'envoie, veuillez re-essayer ulterieurment."
      });
 }

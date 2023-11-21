@@ -1,11 +1,47 @@
 /*--------------------------------------------------------------
+# Prealoder
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #003E89;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #003E89;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*--------------------------------------------------------------
 # Body
 --------------------------------------------------------------*/
 body {
   overflow-x:hidden;
     font-family: Montserrat, sans-serif
 }
-
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
@@ -285,11 +321,13 @@ section {
     cursor: pointer;
     display: none;
     line-height: 0;
-    transition: 0.5s;
+    rotate: 180deg;
   }
   
   .mobile-nav-toggle.bi-x {
     color: #fff;
+    font-size: 32px;
+    margin-right:20px;
   }
   
   @media (max-width: 991px) {
@@ -716,13 +754,16 @@ section {
   margin-top: 60px;
 }
 
+.services .swiper-slide {
+  padding: 0 8px;
+}
+
 .services .align-center {
   margin:0 auto;
 }
 
 .services .image-class {
-  /* width:400px; */
-  max-width: 80%;
+  max-width: 100%;
 }
 
 .services .chip {

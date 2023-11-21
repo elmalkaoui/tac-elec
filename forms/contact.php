@@ -32,7 +32,7 @@
 	            $email_message .= "Message:\n$message";     
 				
 				 // Recipients
-				$mail->setFrom('contact@tac-elec.fr', 'Tac-elec no-reply');
+				$mail->setFrom('contact@tac-elec.fr', 'www.tac-elec.fr');
 			    $mail->addAddress('contact@tac-elec.fr', 'Contact Tac-elec');
 				$mail->AddCC($email);
 				// Content
