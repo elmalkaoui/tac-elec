@@ -43,7 +43,7 @@
           <li><a class="nav-link scrollto" href="#about">Présentation</a></li>
           <li><a class="nav-link scrollto" href="#domaines">Domaines</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contacts</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -60,7 +60,7 @@
         <div class="bg-image">
            <!-- <img src="./assets/img/energy-bg.jpg" /> -->
           <video id="background-video" autoplay loop muted >
-            <source src="./assets/video/background.mkv"   ="video/mp4">
+            <source src="./assets/video/background.mp4"   ="video/mp4">
           </video>
         </div>
     </div>
@@ -305,7 +305,7 @@
           </div>
           
           <div class="col-lg-6 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left" data-aos-delay="100">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Nom complet*</label>
@@ -322,14 +322,14 @@
               </div>
               <div class="form-group">
                 <label for="name">Message*</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
+                <textarea class="form-control" name="message" id="message" rows="10" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">votre message a été envoyé, merci!</div>
               </div>
-              <div class="text-center"><button type="submit">Envoyer</button></div>
+              <div class="text-center"><button type="button" onclick="sendEmail()">Envoyer</button></div>
             </form>
           </div>
 

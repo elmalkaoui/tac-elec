@@ -252,23 +252,36 @@
         mirror: true
       });
     });
-
-    /**
-    *envoie de mail
-    */
-    function sendEmail() { 
-      // Email.send({ 
-      //   Host: "ssl0.ovh.net", 
-      //   Username: "contact@tac-elec.fr", 
-      //   Password: "Amir04012020!", 
-      //   To: 'codeur2018@gmail.com', 
-      //   From: "contact@tac-elec.fr", 
-      //   Subject: "Sending Email using javascript", 
-      //   Body: "Well that was easy!!", 
-      // }) 
-      //   .then(function (message) { 
-      //     alert("mail sent successfully") 
-      //   }); 
-     document.getElementById('form').action = "mailto:codeur2018@gmail.com?subject=" + document.getElementById('subject').value + "&body=" + "Prénom et Nom : " + document.getElementById('name').value + "%0A" + "Message : " + document.getElementById('message').value;
-    }
   })()
+
+/**
+*envoie de mail
+*/
+function sendEmail() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var subject = document.getElementById('subject').value;
+    var message = document.getElementById('message').value;
+    console.log(name, email, subject, message);
+    
+    fetch('forms/contact.php', {
+          method: 'POST',
+          headers: {
+               'Content-Type': 'application/x-www-form-urlencoded',
+          },
+           body: 'name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&subject=' + encodeURIComponent(subject) + '&message=' + encodeURIComponent(message),
+     })
+     .then(response => response.json())
+     .then(data => {
+        console.log(data);
+        if (data.success) {
+            alert('Email sent successfully!');
+        } else {
+            alert('Failed to send email. Please try again later.');
+        }
+     })
+    .catch(error => {
+           console.error('Error:', error);
+           alert('Failed to send email. Please try again later.');
+     });
+}
