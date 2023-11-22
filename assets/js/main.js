@@ -206,7 +206,7 @@
 function sendEmail() {
     if(document.getElementById('name').value === "" || document.getElementById('email').value === ""
       || document.getElementById('subject').value === "" || document.getElementById('message').value === ""){
-        document.getElementsByClassName('error-message')[0].value="Veuillez remplir tous les champs s'il vous plait.";
+        document.getElementsByClassName('error-message')[0].innerHTML="Veuillez remplir tous les champs s'il vous plait.";
         document.getElementsByClassName('error-message')[0].style.display='block';
     }
     var name = document.getElementById('name').value;
@@ -237,6 +237,7 @@ function sendEmail() {
      })
     .catch(error => {
            console.error('Error:', error);
-            document.getElementsByClassName('error-message')[0].value="Une erreur s'est produite lors de l'envoie, veuillez re-essayer ulterieurment."
-     });
+            document.getElementsByClassName('error-message')[0].innerHTML="Une erreur s'est produite lors de l'envoie, veuillez re-essayer ulterieurment."
+            document.getElementsByClassName('error-message')[0].style.display='block'; 
+    });
 }
