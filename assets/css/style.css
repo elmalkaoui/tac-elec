@@ -40,7 +40,7 @@
 --------------------------------------------------------------*/
 body {
   overflow-x:hidden;
-    font-family: Montserrat, sans-serif
+  font-family: Montserrat, sans-serif
 }
 /*--------------------------------------------------------------
 # Sections General
@@ -433,7 +433,7 @@ section {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  place-content: center;
+  justify-content: center;
   width: 100vw;
 }
 
@@ -1037,6 +1037,7 @@ section {
 #footer {
   font-size: 14px;
   background: #003E89;
+  overflow-x:hidden;
 }
 
 #footer .footer-socialnetworks {
